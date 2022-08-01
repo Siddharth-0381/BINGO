@@ -1,0 +1,207 @@
+#include<stdio.h>
+void main()
+{
+	int i,j,a[5][5],cnt=0,n,op;
+	char sname[30];
+	printf("-------------B I N G O     G A M E-------------");
+  /*Entering player name*/
+	printf("\nENTER  PLAYER  NAME :\n");
+	gets(sname);
+	printf("\nPRESS 1.START. \nPRESS 2.EXIT.");
+	scanf("%d",&op);
+	switch(op)
+	{
+	case 1:
+	{
+	
+	printf("\nENTER YOUR BINGO SEQUENCE OF NUMBERS :");
+	printf("\nNOTE : NUMBERS SHOULD BE TILL 25 ONLY IN ANY ORDER :\n");
+	for(i=0;i<5;i++)
+	{
+		printf("\nENTER YOUR %d ROW :",i+1);
+		for(j=0;j<5;j++)
+		{
+			scanf("%d",&a[i][j]);
+		}
+	}
+	printf("YOUR BINGO MATRIX IS :\n");	
+	for(i=0;i<5;i++)
+	{
+		for(j=0;j<5;j++)
+		{
+			if(a[i][j]>0 && a[i][j]<10)
+			
+			printf("| %d  ",a[i][j]);
+		    
+			else
+			
+			printf("| %d ",a[i][j]);
+		    
+		}
+		printf("|\n");
+	}
+	int k[12]={0,0,0,0,0,0,0,0,0,0,0,0};
+	do
+	{
+	printf("\nENTER THE NUMBER TO CUT :\n");
+	scanf("%d",&n);
+	for(i=0;i<5;i++)
+	{
+		for(j=0;j<5;j++)
+		{
+			if(a[i][j]==n)
+			{
+				a[i][j]=0;
+			}
+		}
+	}
+    for(i=0;i<5;i++)
+	{
+		for(j=0;j<5;j++)
+		{
+			if(a[i][j]>=0 && a[i][j]<10)
+			{
+			printf("| %d  ",a[i][j]);
+		    }
+			else
+			{
+			printf("| %d ",a[i][j]);
+		    }
+		}
+		printf("|\n");
+    }
+    {
+            if(k[0]==0)
+            {
+    		if(a[0][0]==0 && a[0][1]==0 && a[0][2]==0 && a[0][3]==0 && a[0][4]==0)
+    		{
+    			cnt++;
+    			k[0]++;
+			}
+		    }
+		    if(k[1]==0)
+		    {
+		    if(a[1][0]==0 && a[1][1]==0 && a[1][2]==0 && a[1][3]==0 && a[1][4]==0)
+			{
+				cnt++;
+				k[1]++;
+			}
+		    }
+		    if(k[2]==0)
+		    {
+			if(a[2][0]==0 && a[2][1]==0 && a[2][2]==0 && a[2][3]==0 && a[2][4]==0)
+			{
+				cnt++;
+				k[2]++;
+			}
+		    }
+		    if(k[3]==0)
+		    {
+			if(a[3][0]==0 && a[3][1]==0 && a[3][2]==0 && a[3][3]==0 && a[3][4]==0)
+			{
+				cnt++;
+				k[3]++;
+			}
+		    }
+		    if(k[4]==0)
+		    {
+			if(a[4][0]==0 && a[4][1]==0 && a[4][2]==0 && a[4][3]==0 && a[4][4]==0)
+			{
+				cnt++;
+				k[4]++;
+			}
+		    }
+		    if(k[5]==0)
+		    {
+			if(a[0][0]==0 && a[1][0]==0 && a[2][0]==0 && a[3][0]==0 && a[4][0]==0)
+			{
+				cnt++;
+				k[5]++;
+			}
+		    }
+		    if(k[6]==0)
+		    {
+			if(a[0][1]==0 && a[1][1]==0 && a[2][1]==0 && a[3][1]==0 && a[4][1]==0)
+			{
+				cnt++;
+				k[6]++;
+			}
+		    }
+		    if(k[7]==0)
+		    {
+			if(a[0][2]==0 && a[1][2]==0 && a[2][2]==0 && a[3][2]==0 && a[4][2]==0)
+			{
+				cnt++;
+				k[7]++;
+			}
+		    }
+		    if(k[8]==0)
+		    {
+			if(a[0][3]==0 && a[1][3]==0 && a[2][3]==0 && a[3][3]==0 && a[4][3]==0)
+			{
+				cnt++;
+				k[8]++;
+			}
+		    }
+		    if(k[9]==0)
+		    {
+			if(a[0][4]==0 && a[1][4]==0 && a[2][4]==0 && a[3][4]==0 && a[4][4]==0)
+			{
+				cnt++;
+				k[9]++;
+			}
+		    }
+		    if(k[10]==0)
+		    {
+			if(a[0][0]==0 && a[1][1]==0 && a[2][2]==0 && a[3][3]==0 && a[4][4]==0)
+			{
+				cnt++;
+				k[10]++;
+			}
+		    }
+		    if(k[11]==0)
+		    {
+			if(a[0][4]==0 && a[1][3]==0 && a[2][2]==0 && a[3][1]==0 && a[4][0]==0)
+			{
+				cnt++;
+				k[11]++;
+			}
+		    }
+		}
+		if(cnt==0)
+		{
+			printf("\nB  I  N  G  O");
+		}
+		else if(cnt==1)
+		{
+			printf("\n%s ONE ROW DONE.\nCOME ON!!!!\n/  I  N  G  O",sname);
+		}
+		else if(cnt==2)
+		{
+			printf("\n%s TWO ROWs DONE.\nYOU CAN DO IT!!!!\n/  /  N  G  O",sname);
+		}
+		else if(cnt==3)
+		{
+			printf("\n%s THREE ROWS DONE.\nYOU CAN WINNNN!!!!\n/  /  /  G  O",sname);
+		}
+		else if(cnt==4)
+		{
+			printf("\n%s FOUR ROWS DONE.\nDON'T GIVE UP!!!!\n/  /  /  /  O",sname);
+		}
+		else
+		{
+			printf("\n%s ALL ROWS FINISHED.\n\nCONGRATULATIONS YOU WON THE GAME!!!!\n/  /  /  /  / ",sname);
+		}
+    }
+	while(cnt!=5);
+    break;
+    }
+    case 2:
+    {
+    	{
+    		printf("\nTHANK YOU FOR PLAYING.......");
+    		break;
+		}
+    }
+   }
+}
